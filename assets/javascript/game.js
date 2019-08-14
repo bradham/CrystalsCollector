@@ -1,8 +1,11 @@
+
+//To do: targetNumber needs to be randomly generated between 19 and 120
 var targetNumber = 53;
 //Show the user the number that was selected
 $("#number-to-guess").text(targetNumber);
 
 var totalScore = 0;
+//To do: numberOptions needs to be generated between 1 and 12
 var numberOptions = [10, 5, 3, 7];
 var wins = 0;
 var losses = 0;
@@ -23,15 +26,6 @@ for (var i = 0; i < numberOptions.length; i++) {
 //not needed because we now have crystalValue
 //var increment = numberOptions[Math.round(Math.random())];
 
-//only for viewing code actions
-/* console.log("numberOptions[0]: " + numberOptions[0]);
-console.log("numberOptions[1]: " + numberOptions[1]);
-var whatIsMathDotRandom = Math.random();
-console.log("What does Math.random() do: " + whatIsMathDotRandom);
-var randomRounded = Math.round(Math.random());
-console.log("What does Math.round(Math.random()) do: " + randomRounded);
- */
-
 
 $(".crystal-image").on("click", function () {
 
@@ -44,16 +38,27 @@ $(".crystal-image").on("click", function () {
     console.log("totalScore variable is " + totalScore);
     $("#total-score").text(totalScore);
 
-
     if (totalScore === targetNumber) {
         console.log("You Win!");
         $("#wins-losses-message").text("You win!");
         wins++;
-        $("#wins-total").append(wins);
+        $("#wins-total").text(wins);
+        initializeGame();
 
     }
 
-    else if (totalScore >= targetNumber) {
-        console.log("You Loose!");
+    else if (totalScore > targetNumber) {
+        console.log("You Lose!");
+        $("#wins-losses-message").text("You Lose!");
+        losses++;
+        $("#losses-total").text(losses);
+        initializeGame();
+
     }
 });
+
+function initializeGame() {
+    totalScore = 0;
+    $("#total-score").text(totalScore);
+
+}
