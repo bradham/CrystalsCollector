@@ -1,5 +1,9 @@
 .crystal-image {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
  
+ }
+
+ body {
+     background-image: url("../images/green_bg.jpg");
  }

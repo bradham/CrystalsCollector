@@ -1,12 +1,18 @@
 
-//To do: targetNumber needs to be randomly generated between 19 and 120
-var targetNumber = 53;
+//targetNumber needs to be randomly generated between 19 and 120
+var targetNumber = getRandomNum(120,19);
 //Show the user the number that was selected
 $("#number-to-guess").text(targetNumber);
 
 var totalScore = 0;
-//To do: numberOptions needs to be generated between 1 and 12
-var numberOptions = [10, 5, 3, 7];
+//numberOptions array generations 4 random numbers between 1 and 12
+var numberOptions = getRandomArray(12,1,4);
+console.log("4 options: " + numberOptions);
+// for (var i = 0;i < 4;i++) {
+//     numberOptions[i] = getRandomNum(12,1);
+//     console.log("Crystal " + i + " is " + numberOptions[i]);
+// };
+
 var wins = 0;
 var losses = 0;
 
@@ -60,5 +66,23 @@ $(".crystal-image").on("click", function () {
 function initializeGame() {
     totalScore = 0;
     $("#total-score").text(totalScore);
+    numberOptions = getRandomArray(12,1,4);
+    targetNumber = getRandomNum(120,19);
+    $("#number-to-guess").text(targetNumber);
 
+}
+
+function getRandomNum(max,min) {
+    //found func to return number between range
+    //https://stackoverflow.com/questions/22363616/generate-random-number-between-2-variables-jquery/22363927
+    return (Math.floor(Math.random()*(max-min+1)+min));
+}
+
+function getRandomArray(max,min,length) {
+    var arrRandom = [];
+    for (var i = 0;i < length;i++) {
+        arrRandom[i] = getRandomNum(max,min);
+        console.log("Crystal " + i + " is " + arrRandom[i]);
+    };
+    return arrRandom;
 }
