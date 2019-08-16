@@ -7,3 +7,10 @@
  body {
      background-image: url("../images/green_bg.jpg");
  }
+
+ h1 {
+     font-size: 40px;
+     background-color: coral;
+     display:inline-block;
+     padding: 30px 0px 30px 0px;
+ }
