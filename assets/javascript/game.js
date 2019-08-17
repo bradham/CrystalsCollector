@@ -1,26 +1,27 @@
 
-//targetNumber needs to be randomly generated between 19 and 120
+//targetNumber is randomly generated between 19 and 120
 var targetNumber = getRandomNum(120,19);
 //Show the user the number that was selected
 $("#number-to-guess").text(targetNumber);
 
-var totalScore = 0;
-//numberOptions array generations 4 random numbers between 1 and 12
+
+//numberOptions array generates 4 random numbers between 1 and 12
 var numberOptions = getRandomArray(12,1,4);
 console.log("4 options: " + numberOptions);
 // for (var i = 0;i < 4;i++) {
 //     numberOptions[i] = getRandomNum(12,1);
 //     console.log("Crystal " + i + " is " + numberOptions[i]);
 // };
-
+var totalScore = 0;
 var wins = 0;
 var losses = 0;
+var imagesArr = ["assets/images/green_crystal.jpg", "assets/images/blue_crystal.jpg", "assets/images/red_crystal.jpg", "assets/images/yellow_crystal.jpg"]
 
 //Create an image for each item in the array numberOptions 
 for (var i = 0; i < numberOptions.length; i++) {
     var imageCrystal = $("<img>");
     imageCrystal.addClass("crystal-image");
-    imageCrystal.attr("src", "assets/images/green_crystal.jpg");
+    imageCrystal.attr("src", imagesArr[i]);
 
     //Assign each <img> a value from the numberOptions array.
     imageCrystal.attr("data-crystalvalue", numberOptions[i]);
