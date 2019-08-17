@@ -22,6 +22,13 @@
      /* position: absolute; */
  }
 
- #number-to-guess {
+ /* #number-to-guess  */
+ h2 {
      background-color: #7FFF00;
+     width: 200px;
+     padding: 15px 15px 35px 0px;
  }
+
+ /* .score-board {
+    background-color: #00FFFF;
+ } */

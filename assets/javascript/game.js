@@ -4,24 +4,23 @@ var targetNumber = getRandomNum(120,19);
 //Show the user the number that was selected
 $("#number-to-guess").text(targetNumber);
 
-
 //numberOptions array generates 4 random numbers between 1 and 12
 var numberOptions = getRandomArray(12,1,4);
-console.log("4 options: " + numberOptions);
-// for (var i = 0;i < 4;i++) {
-//     numberOptions[i] = getRandomNum(12,1);
-//     console.log("Crystal " + i + " is " + numberOptions[i]);
-// };
+//console.log("4 options: " + numberOptions);
+
 var totalScore = 0;
 var wins = 0;
 var losses = 0;
 var imagesArr = ["assets/images/green_crystal.jpg", "assets/images/blue_crystal.jpg", "assets/images/red_crystal.jpg", "assets/images/yellow_crystal.jpg"]
 
-//Create an image for each item in the array numberOptions 
+//Create an image with each random number in the array numberOptions set to data-crystalvalue
 for (var i = 0; i < numberOptions.length; i++) {
     var imageCrystal = $("<img>");
     imageCrystal.addClass("crystal-image");
     imageCrystal.attr("src", imagesArr[i]);
+
+    //Add id so that initialize() can target and change random crystal value
+    imageCrystal.attr("id", ("crystal" + i));
 
     //Assign each <img> a value from the numberOptions array.
     imageCrystal.attr("data-crystalvalue", numberOptions[i]);
@@ -70,6 +69,11 @@ function initializeGame() {
     numberOptions = getRandomArray(12,1,4);
     targetNumber = getRandomNum(120,19);
     $("#number-to-guess").text(targetNumber);
+    //How to re-initialize each img elements value with new crystal value?
+    for (var i = 0; i < numberOptions.length; i++) {
+        $("#crystal" + i).attr("data-crystalvalue", numberOptions[i])
+        console.log("New crystal " + i + " value is: " + numberOptions[i]);
+    }
 
 }
 
