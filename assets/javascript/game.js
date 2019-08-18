@@ -13,7 +13,9 @@ var wins = 0;
 var losses = 0;
 var imagesArr = ["assets/images/green_crystal.jpg", "assets/images/blue_crystal.jpg", "assets/images/red_crystal.jpg", "assets/images/yellow_crystal.jpg"]
 
-//Start page showing 0 as total score
+//Start page showing 0 for wins, losses, and total score
+$("#post-win").text(" " + wins);
+$("#post-loss").text(" " + losses);
 $("#total-score").text(totalScore);
 
 //Create an image with each random number in the array numberOptions set to data-crystalvalue
@@ -32,9 +34,6 @@ for (var i = 0; i < numberOptions.length; i++) {
     $("#crystals").append(imageCrystal);
 }
 
-//not needed because we now have crystalValue
-//var increment = numberOptions[Math.round(Math.random())];
-
 
 $(".crystal-image").on("click", function () {
 
@@ -51,7 +50,7 @@ $(".crystal-image").on("click", function () {
         console.log("You Win!");
         $("#wins-losses-message").text("You win!");
         wins++;
-        $("#wins-total").append(" " + wins);
+        $("#post-win").text(wins);
         initializeGame();
 
     }
@@ -60,7 +59,7 @@ $(".crystal-image").on("click", function () {
         console.log("You Lose!");
         $("#wins-losses-message").text("You Lose!");
         losses++;
-        $("#losses-total").append(" " + losses);
+        $("#post-loss").text(losses);
         initializeGame();
 
     }

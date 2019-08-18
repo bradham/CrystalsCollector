@@ -56,6 +56,18 @@
      padding: 4px 2px 0px 0px;
  }
 
+ #wins-total {
+     float: left;
+     margin-right: 4px;
+ }
+
+ #losses-total {
+    float: left;
+    margin-right: 4px;
+
+}
+
+
  /* span {
      clear: both;
  } */
