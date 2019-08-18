@@ -24,7 +24,6 @@
      width: 420px;
      padding: 15px 15px 35px 0px;
      margin: 7px;
-     /* position: absolute; */
  }
 
  p {
@@ -46,9 +45,6 @@
     width: 150px;
     height: 90px;
     margin: 7px;
-    /* padding: 9px 0px 0px 4px; */
-
-    /* padding: 15px 0px 35px 0px; */
     float: left;
  }
 
@@ -66,15 +62,6 @@
     margin-right: 4px;
 
 }
-
-
- /* span {
-     clear: both;
- } */
-
- /* .tally {
-     width: 75px;
- } */
 
  #crystals {
   clear: both; 

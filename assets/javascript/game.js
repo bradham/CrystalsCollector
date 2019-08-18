@@ -6,6 +6,7 @@ $("#number-to-guess").text(targetNumber);
 
 //numberOptions array generates 4 random numbers between 1 and 12
 var numberOptions = getRandomArray(12,1,4);
+//For debugging:
 //console.log("4 options: " + numberOptions);
 
 var totalScore = 0;
@@ -18,7 +19,7 @@ $("#post-win").text(" " + wins);
 $("#post-loss").text(" " + losses);
 $("#total-score").text(totalScore);
 
-//Create an image with each random number in the array numberOptions set to data-crystalvalue
+//Create image elements and set data-crystalvalue to each random number in the array numberOptions 
 for (var i = 0; i < numberOptions.length; i++) {
     var imageCrystal = $("<img>");
     imageCrystal.addClass("crystal-image");
@@ -29,34 +30,33 @@ for (var i = 0; i < numberOptions.length; i++) {
 
     //Assign each <img> a value from the numberOptions array.
     imageCrystal.attr("data-crystalvalue", numberOptions[i]);
-    console.log("imageCrystal " + i + " has value " + numberOptions[i]);
-
+    //For debugging:
+    //console.log("imageCrystal " + i + " has value " + numberOptions[i]);
+    
     $("#crystals").append(imageCrystal);
 }
-
 
 $(".crystal-image").on("click", function () {
 
     var crystalValue = ($(this).attr("data-crystalvalue"));
     crystalValue = parseInt(crystalValue);
-    console.log("crystalValue is: " + crystalValue);
+    //For debugging:
+    //console.log("crystalValue is: " + crystalValue);
 
     //Add the crystal's value to the total and display the total
     totalScore += crystalValue;
-    console.log("totalScore variable is " + totalScore);
+    //For debugging:
+    //console.log("totalScore variable is " + totalScore);
     $("#total-score").text(totalScore);
 
     if (totalScore === targetNumber) {
-        console.log("You Win!");
         $("#wins-losses-message").text("You win!");
         wins++;
         $("#post-win").text(wins);
         initializeGame();
-
     }
 
     else if (totalScore > targetNumber) {
-        console.log("You Lose!");
         $("#wins-losses-message").text("You Lose!");
         losses++;
         $("#post-loss").text(losses);
@@ -75,7 +75,8 @@ function initializeGame() {
     //Re-initialize each img element value with a new random crystal value.
     for (var i = 0; i < numberOptions.length; i++) {
         $("#crystal" + i).attr("data-crystalvalue", numberOptions[i])
-        console.log("New crystal " + i + " value is: " + numberOptions[i]);
+        //For Debugging:
+        //console.log("New crystal " + i + " value is: " + numberOptions[i]);
     }
 
 }
@@ -90,7 +91,8 @@ function getRandomArray(max,min,length) {
     var arrRandom = [];
     for (var i = 0;i < length;i++) {
         arrRandom[i] = getRandomNum(max,min);
-        console.log("Crystal " + i + " is " + arrRandom[i]);
+        //For Debugging:
+        //console.log("Crystal " + i + " is " + arrRandom[i]);
     };
     return arrRandom;
 }
